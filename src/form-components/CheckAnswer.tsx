@@ -13,7 +13,7 @@ export function CheckAnswer({
             <h3>Check Answer</h3>
             <Form.Group>
                 <Form.Group>
-                    <Form.Label>What iss your answer:</Form.Label>
+                    <Form.Label>What is your answer:</Form.Label>
                     <Form.Control
                         value={givenAnswer}
                         onChange={(
@@ -23,8 +23,8 @@ export function CheckAnswer({
                         }}
                     />
                 </Form.Group>
-                <div> {givenAnswer === "42" ? "✔️" : "❌"}</div>
             </Form.Group>
+            <div> {givenAnswer === expectedAnswer ? "✔️" : "❌"}</div>
         </div>
     );
 }

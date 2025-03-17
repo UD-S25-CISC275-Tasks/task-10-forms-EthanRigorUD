@@ -17,26 +17,32 @@ export function EditMode(): React.JSX.Element {
                     setIsEditMode(event.target.checked);
                 }}
             />
-            <Form.Check
-                disabled={!isEditMode}
-                type="checkbox"
-                id="is-happy-check"
-                label="Student?"
-                checked={isStudent}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setIsStudent(event.target.checked);
-                }}
-            />
-            <Form.Group controlId="formMovieName">
-                <Form.Label disabled={!isEditMode}>Name:</Form.Label>
-                <Form.Control
+            {isEditMode && (
+                <Form.Check
                     disabled={!isEditMode}
-                    value={username}
+                    type="checkbox"
+                    id="is-happy-check"
+                    label="Student?"
+                    checked={isStudent}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        setUsername(event.target.value);
+                        setIsStudent(event.target.checked);
                     }}
                 />
-            </Form.Group>
+            )}
+            {isEditMode && (
+                <Form.Group controlId="formMovieName">
+                    <Form.Label disabled={!isEditMode}>Name:</Form.Label>
+                    <Form.Control
+                        disabled={!isEditMode}
+                        value={username}
+                        onChange={(
+                            event: React.ChangeEvent<HTMLInputElement>,
+                        ) => {
+                            setUsername(event.target.value);
+                        }}
+                    />
+                </Form.Group>
+            )}
             {!isEditMode && (
                 <div>
                     {" "}
